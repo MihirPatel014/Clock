@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <style>
+        body {
+           background-color: darkcyan;
+           font-size: 30px;
+           display: flex;
+           flex-direction: column;
+        }
+        
+        .container {
+            display: flex;
+            border: 2px solid;
+            width: 250px;
+            position: relative;
+            top: 50vh;
+            left: 80vh;
+            font-size: 40px;
+        }
+        .fulldate {
+            position: relative;
+            top: 50vh;
+            left: 80vh;
+            width: 250px;
+        }
+        .full-container{
+            position: relative;
+            top: 50vh;
+            left: 80vh;
+            width: 250px;
+        }
+        #clock {
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    
+<div class="main">
+    <div class="container">
+        <div class="hour">00</div>
+        <div class="space">:</div>
+        <div class="minutes">00</div>
+        <div class="space">:</div>
+        <div class="seconds">00</div>
+        <div class="session">AM</div> 
+
+
+    </div>
+    <div class="fulldate">date</div>
+    <div class="full-container">
+        It's <span class="hours">date</span>
+        <span class="minu">date</span><br>
+        <span class="second">date</span>
+    </div>
+</div>
+
+<div id="clock"></div>
+   <script>
+
+     var numbers = [
+        {
+            id:1, words:"One"
+        },
+        {
+            id:2, words:"Two"
+        },
+        {
+            id:3, words:"Three"
+        },
+        {
+            id:4, words:"Four"
+        },
+        {
+            id:5, words:"Five"
+        },
+        {
+            id:6, words:"Six"
+        },
+        {
+            id:7, words:"Seven"
+        },
+        {
+            id:8, words:"Eight"
+        },
+        {
+            id:9, words:"Nine"
+        },
+        {
+            id:10, words:"Ten"
+        },
+        {
+            id:11, words:"Eleven"
+        },
+        {
+            id:12, words:"Twelve"
+        },
+        {
+            id:13, words:"Thirteen"
+        },
+        {
+            id:14, words:"Fourteen"
+        },
+        {
+            id:15, words:"Fifteen"
+        },
+        {
+            id:16, words:"Sixteen"
+        },
+        {
+            id:17, words:"Seventeen"
+        },
+        {
+            id:18, words:"Eighteen"
+        },
+        {
+            id:19, words:"Nineteen"
+        },
+        {
+            id:20, words:"Twenty"
+        },
+        {
+            id:21, words:"Twenty-one"
+        },
+        {
+            id:22, words:"Twenty-two"
+        },
+        {
+            id:23, words:"Twenty-three"
+        },
+        {
+            id:24, words:"Twenty-four"
+        },
+        {
+            id:25, words:"Twenty-five"
+        },
+        {
+            id:26, words:"Twenty-six"
+        },
+        {
+            id:27, words:"Twenty-seven"
+        },
+        {
+            id:28, words:"Twenty-eight"
+        },
+        {
+            id:29, words:"Twenty-Nine"
+        },
+        {
+            id:30, words:"Thirty"
+        },
+        {
+            id:31, words:"Thirty-One"
+        },
+        {
+            id:32, words:"Thirty-Two"
+        },
+        {
+            id:33, words:"Thirty-Three"
+        },
+        {
+            id:34, words:"Thirty-Four"
+        },
+        {
+            id:35, words:"Thirty-Five"
+        },
+        {
+            id:36, words:"Thirty-Six"
+        },
+        {
+            id:37, words:"Thirty-Seven"
+        },
+        {
+            id:38, words:"Thirty-Eight"
+        },
+        {
+            id:39, words:"Thirty-Nine"
+        },
+        {
+            id:40, words:"Forty"
+        },
+        {
+            id:41, words:"Forty-One"
+        },
+        {
+            id:42, words:"Forty-Two"
+        },
+        {
+            id:43, words:"Forty-Three"
+        },
+        {
+            id:44, words:"Forty-Four"
+        },
+        {
+            id:45, words:"Forty-Five"
+        },
+        {
+            id:46, words:"Forty-Six"
+        },
+        {
+            id:47, words:"Forty-Seven"
+        },
+        {
+            id:48, words:"Forty-Eight"
+        },
+        {
+            id:49, words:"Forty-Nine"
+        },
+        {
+            id:50, words:"Fifty"
+        },
+        {
+            id:51, words:"Fifty-One"
+        },
+        {
+            id:52, words:"Fifty-Two"
+        },
+        {
+            id:53, words:"Fifty-Three"
+        },
+        {
+            id:54, words:"Fifty-Four"
+        },
+        {
+            id:55, words:"Fifty-Five"
+        },
+        {
+            id:56, words:"Fifty-Six"
+        },
+        {
+            id:57, words:"Fifty-Seven"
+        },
+        {
+            id:58, words:"Fifty-Eight"
+        },
+        {
+            id:59, words:"Fifty-Nine"
+        },
+        {
+            id:60, words:"Sixty"
+        },
+     ] 
+
+    var days = ["Sunday","Monday", "Tuesday", "Wednesday","Thursday","Friday","Saturday"]
+    var  months = ["January","February","March","April","May","June","July","August","September","October","November","December"]
+
+        function displayTime() {
+            var t = new Date();
+            var m = (t.getMonth() + 1);
+            var d = (t.getDay() );
+            var hours = (t.getHours() );
+            var minute = (t.getMinutes() );
+            var y = t.getFullYear(); 
+            var date = (t.getDate())
+            var  y = t.getFullYear();
+            var full= days[d] + " " + date + months[m - 1]   + " " + y ;
+            var sec = t.getSeconds();
+            
+
+            hours = hours > 12 ? hours -12: hours;
+            session = hours < 12 ? "AM" : "PM";
+
+            document.querySelector('.session').innerHTML = session;
+            document.querySelector('.hour').innerHTML = hours;
+            document.querySelector('.minutes').innerHTML = minute;
+            document.querySelector('.seconds').innerHTML = sec;
+            document.querySelector('.fulldate').innerHTML = full ;
+
+            for (let a=0; a < numbers.length; a++){
+                let x = hours;
+                let y = minute;
+                let z = sec;
+
+                if( x == numbers[a].id){
+                    
+                    document.querySelector(".hours").innerHTML = numbers[a].words ;
+                }
+                if( y == numbers[a].id){
+                    
+                    document.querySelector(".minu").innerHTML = numbers[a].words ;
+                }
+                if( z == numbers[a].id){
+                    
+                    document.querySelector(".second").innerHTML = numbers[a].words ;
+                }
+                
+            }
+
+        }
+
+        setInterval(displayTime , 10);
+
+
+
+      
+        
+    </script>
+
+   
+</body>
+</html>
